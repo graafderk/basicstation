@@ -1,33 +1,8 @@
-[![regr-tests](https://github.com/lorabasics/basicstation/actions/workflows/regr-tests.yml/badge.svg?branch=master)](https://github.com/lorabasics/basicstation/actions/workflows/regr-tests.yml?query=branch%3Amaster)
-
 # LoRa Basics™ Station
+This repository is a fork of the LoRa Basics™ Station made to work with the RAK2278 concentrator board on a RAK2004 v2 PI HAT.
+For a full description of the LoRa Basics™ Station software, go to https://github.com/lorabasics/basicstation
 
-[Basic Station](https://doc.sm.tc/station) is a LoRaWAN Gateway implementation, including features like
-
-*  **Ready for LoRaWAN Classes A, B, and C**
-*  **Unified Radio Abstraction Layer supporting Concentrator Reference Designs [v1.5](https://doc.sm.tc/station/gw_v1.5.html), [v2](https://doc.sm.tc/station/gw_v2.html) and [Corecell](https://doc.sm.tc/station/gw_corecell.html)**
-
-*  **Powerful Backend Protocols** (read [here](https://doc.sm.tc/station/tcproto.html) and [here](https://doc.sm.tc/station/cupsproto.html))
-    -  Centralized update and configuration management
-    -  Centralized channel-plan management
-    -  Centralized time synchronization and transfer
-    -  Various authentication schemes (client certificate, auth tokens)
-    -  Remote interactive shell
-
-*  **Lean Design**
-    -  No external software dependencies (except mbedTLS and libloragw/-v2)
-    -  Portable C code, no C++, dependent only on GNU libc
-    -  Easily portable to Linux-based gateways and embedded systems
-    -  No dependency on local time keeping
-    -  No need for incoming connections
-
-## Documentation
-
-The full documentation is available at [https://doc.sm.tc/station](https://doc.sm.tc/station).
-
-### High Level Architecture
-
-![High Level Station Architecture](https://doc.sm.tc/station/_images/architecture.png)
+In addition to the examples available from the original repository, an example is provided for connection to Actility's ThingPark LNS. 
 
 ## Prerequisites
 
@@ -61,7 +36,7 @@ The build process consists of the following steps:
 *  Setup build environment within subdirectory `build-$platform-$variant/`
 *  Compile station source files into executable `build-$platform-$variant/bin/station`
 
-#### Step 3: Running the Example Configuration on a Raspberry Pi
+#### Step 3: Running the Actility Example Configuration on a Raspberry Pi
 
 ``` sourceCode
 cd examples/live-s2.sm.tc
@@ -104,19 +79,6 @@ RADIODEV=/dev/ttyACM0 ../../build-linuxpico-std/bin/station
 **Note:** The serial device for the PicoCell MAY be passed as an environment variable using `RADIODEV`.
 
 ## Next Steps
-
-Next,
-
-*  consult the help menu of Station via `station --help`,
-*  inspect the `station.conf` and `cups-boot.*` [example configuration files](/examples/live-s2.sm.tc),
-*  tune your local [configuration](https://doc.sm.tc/station/conf.html),
-*  learn how to [compile Station](https://doc.sm.tc/station/compile.html) for your target platform.
-
-Check out the other examples:
-
-*  [Simulation Example](/examples/simulation) - An introduction to the simulation environment.
-*  [CUPS Example](/examples/cups) - Demonstration of the CUPS protocol within the simulation environment.
-*  [Station to Pkfwd Protocol Bridge Example](/examples/station2pkfwd) - Connect Basic Station to LNS supporting the legacy protocol.
 
 ## Usage
 
